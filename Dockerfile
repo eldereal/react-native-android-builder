@@ -12,7 +12,9 @@ ENV ANDROID_SDK_ROOT=/android \
 RUN apt update && \
     apt install -y wget unzip openjdk-8-jdk git && \
     apt clean && \
-    wget https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CLI_VERSION}_latest.zip -O cli.zip && \
+    mkdir /android && \
+    cd /android && \
+    wget --quiet https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CLI_VERSION}_latest.zip -O cli.zip && \
     unzip cli.zip && \
     rm cli.zip && \
     yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses && \
