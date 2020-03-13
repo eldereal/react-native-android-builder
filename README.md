@@ -13,6 +13,8 @@ docker run -it --rm -v PROJECT_ROOT:/app
 
 Output artifacts will be placed at `PROJECT_ROOT/build`
 
+
+
 ## With Gradle cache
 
 Add parameter `-v GRADLE_CACHE_VOLUME_OR_FOLDER:/root/.gradle` to run arguments.
