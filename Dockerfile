@@ -17,11 +17,11 @@ RUN apt update && \
     wget --quiet https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CLI_VERSION}_latest.zip -O cli.zip && \
     unzip cli.zip && \
     rm cli.zip && \
-    yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses && \
+    yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses > /dev/null && \
     sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --install \
-        'build-tools;${ANDROID_BUILD_TOOLS_VERSION}' \
-        'platforms;${ANDROID_PLATFORMS_VERSION}' \
-        'platform-tools;${ANDROID_PLATFORM_TOOLS_VERSION}'
+        "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" \
+        "platforms;${ANDROID_PLATFORMS_VERSION}" \
+        "platform-tools;${ANDROID_PLATFORM_TOOLS_VERSION}"
         
 COPY ./entrypoint.sh /entrypoint.sh
 
